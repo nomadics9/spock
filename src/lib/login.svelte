@@ -7,17 +7,17 @@
 			const meta = authData.meta;
             console.log(meta)
 
-			if (meta?.isNew) {
+			if (meta?.isNew || !currentUser.avatar) {
 				const formData = new FormData();
 
-				const response = await fetch(meta.avatarUrl);
+				const response = await fetch(meta?.avatarUrl);
 
 				if (response.ok) {
 					const file = await response.blob();
 					formData.append('avatar', file);
 				}
 
-				formData.append('name', meta.name);
+				formData.append('name', meta?.name);
 
 				await pb.collection('users').update(authData.record.id, formData);
 			}
