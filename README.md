@@ -1,14 +1,16 @@
 # Spock - Svelte + Pocketbase
+
 My boilerplate for
 <img src="./git_assets/spock.jpg" align="center" height="64" width="48" ></a>
-
 
     1.  Sveltekit + Pocketbase DB
     2.  Tailwindcss
     3.  SkeletonUI
 
 # Auth Ready
+
 ### Snippet from login.svelete component - populating name and avatar from Google provider
+
 ```typescript
 <script lang="ts">
 	import { currentUser, pb } from '$lib/pocketbase';
@@ -44,22 +46,40 @@ My boilerplate for
 </script>
 ```
 
-### currentUser as a store to use example ``` $currentUser.avatar ```
+### currentUser as a store to use example `$currentUser.avatar`
+
 ```ts
-import { env } from '$env/dynamic/public'
-import PocketBase from 'pocketbase'
-import { writable } from 'svelte/store'
+import { env } from '$env/dynamic/public';
+import PocketBase from 'pocketbase';
+import { writable } from 'svelte/store';
 
-export const pb = new PocketBase(env.PUBLIC_DB_URL)
+export const pb = new PocketBase(env.PUBLIC_DB_URL);
 
-export const currentUser = writable(pb.authStore.model)
+export const currentUser = writable(pb.authStore.model);
 
 pb.authStore.onChange((auth) => {
-    //console.log('auth changed ', auth)
-    currentUser.set(pb.authStore.model)
-})
+	//console.log('auth changed ', auth)
+	currentUser.set(pb.authStore.model);
+});
 ```
+
 ### use .env for pocketbase URL
-```sh 
+
+```sh
 PUBLIC_DB_URL=http://localhost:8090
 ```
+
+### Usage:
+
+1. run DB in same dir
+
+```bash
+pocketbase serve
+```
+
+2. dev mode
+
+```bash
+bun dev OR npm run dev
+```
+
