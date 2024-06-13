@@ -78,6 +78,7 @@ pocketbase serve
 ```
 
 2. dev mode
+
    BUN 🐰
 
 ```bash
