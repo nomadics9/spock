@@ -78,27 +78,14 @@ pocketbase serve
 ```
 
 2. dev mode
-
--
+   BUN 🐰
 
 ```bash
-bun install
+bun install && bun dev
 ```
 
-or
+NPM 🪟
 
 ```bash
-npm run install
-```
-
--
-
-```bash
-bun dev
-```
-
-or
-
-```bash
-npm run dev
+npm run install && npm run dev
 ```
