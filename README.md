@@ -82,11 +82,11 @@ pocketbase serve
 BUN 🐰
 
 ```bash
-  bun install && bun dev
+bun install && bun dev
 ```
 
 NPM 🪟
 
 ```bash
-  npm run install && npm run dev
+npm run install && npm run dev
 ```
